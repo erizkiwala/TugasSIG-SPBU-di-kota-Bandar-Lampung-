@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width"> 
+  <title>Sistem Informasi Geografis</title> 
+  <link rel="stylesheet" type="text/css" href="">
+    <h1><center>Sistem Informasi Geografis SPBU</center></h1> 
+  <script src=""></script> 
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">			
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+						
+			</ul>
+		</div>
+  <script> 
+  
+
+var marker; 
+   
+function taruhMarker(peta, posisiTitik){ 
+     
+    if( marker ){ 
+      marker.setPosition(posisiTitik); 
+    } else { 
+      marker = new google.maps.Marker({ 
+        position: posisiTitik, 
+        map: peta 
+      }); 
+    } 
+    document.getElementById("lat").value = posisiTitik.lat(); 
+    document.getElementById("lng").value = posisiTitik.lng(); 
+ document.getElementById("info").value = posisiTitik.info(); 
+     
+} 
