@@ -1,0 +1,17 @@
+body {
+  background: ;
+  font-family: 'Open Sans', sans-serif;
+}
+.wrap{
+	background: ;
+	width: px;
+	margin: px auto;
+}
+ 
+/*bagian header*/
+.wrap .header{
+	background: #20B2AA;
+	/*height: px;*/
+	padding: px px;
+}
+ 
