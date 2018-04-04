@@ -2,37 +2,29 @@ body {
   background: #ADE8E6;
   font-family: 'Open Sans', sans-serif;
 }
-.wrap{
-	background: #ADE8E6;
-	width: 900px;
+
+#menu{
+	background: #20B2AA;
+	width: 500px;
+  border-radius: 10px;
+  padding: 20px 10px;
+	list-style-type: none;
+	position : relative;
+  float :center;
 	margin: 10px auto;
 }
- 
-/*bagian header*/
-.wrap .header{
-	background: #20B2AA;
-	/*height: 50px;*/
-	padding: 2px 10px;
+
+.submenu {
+  color: #ffffff;
+  float :center;
 }
 
-/*akhir header*/
-
-/*bagian menu*/
-.wrap .menu{
-        background: #20B2AA;
-}
-
-.wrap .menu ul{
-        padding: 0;
-        margin: 0;
-        background: #20B2AA;
-        overflow: hidden;
-}
-
-.wrap .menu ul li{
-        float: left;
-        list-style-type: none;
-        padding: 10px;
+#kotak {
+  width: 400px;
+  background: #FFF;
+  border-radius: 10px;
+  padding: 40px 60px;
+  margin:auto;
 }
 
  
