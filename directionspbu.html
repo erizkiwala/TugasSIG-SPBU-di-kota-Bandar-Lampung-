@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Direction SPBU</title>	<link rel="stylesheet" type="text/css" href="markercontoh2.css">
+    <style>
+      #map {
+        height: 78%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 20px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      #right-panel {
+        height: 100%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+      #map {
+        margin-right: 400px;
+      }
+      #floating-panel {
+        background: #fff;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Arial;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        display: none;
+      }
+      @media print {
+        #map {
+          height: 500px;
+          margin: 0;
+        }
+        #right-panel {
+          float: none;
+          width: auto;
+        }
+      }
+    </style>
+  </head>    
+  <body>    <h1><center>SIG SPBU Kota Bandar Lampung</center></h1>            <div class="header">    <div class= "sidebar">        <a class="active" href="SPBU.html">HOME</a>             <div class="s1">                <button class="btn1">DAFTAR SPBU</button>					<div class="sidebar3">						<a href="rajabasa.html" target='blank'>KECAMATAN RAJABASA</a>						<a href="kedaton.html" target='blank'>KECAMATAN KEDATON</a>						<a href="kemiling.html" target='blank'>KECAMATAN KEMILING</a>						<a href="sukabumi.html" target='blank'>KECAMATAN SUKABUMI</a>						<a href="sukarame.html" target='blank'>KECAMATAN SUKARAME</a>						<a href="tanjung_senang.html" target='blank'>KECAMATAN TANJUNG SENANG</a>						<a href="tb_utara.html" target='blank'>KECAMATAN TELUK BETUNG UTARA</a>						<a href="tb_selatan.html" target='blank'>KECAMATAN TELUK BETUNG SELATAN</a>						<a href="tkp.html" target='blank'>KECAMATAN TANJUNG KARANG PUSAT</a>						<a href="tk_timur.html" target='blank'>KECAMATAN TANJUNG KARANG TIMUR</a>					</div>			</div>		<a class="active" href="contactus.html">CONTACT US</a>		<a class="active" href="directionspbu.html">DIRECTION</a>		<div class="s1">                <button class="btn1">OVERLAY</button>					<div class="sidebar3">						<a href="overlayrajabasa.html" target='blank'>SPBU jalan Pramuka, rajabasa</a>						<a href="overlayrajabasaraya.html" target='blank'>SPBU Jalan By Pass Soekarno Hatta, Rajabasa raya</a>						<a href="kemiling.html" target='blank'>SPBU Jl. ZA Pagar Alam No.72, Rajabasa</a>						<a href="sukabumi.html" target='blank'>SPBU Jl. Zaenal Abidin Pagar Alam, Rajabasa</a>						<a href="sukarame.html" target='blank'>SPBU Jl. Soekarno - Hatta, Labuhan Ratu, Kedaton</a>						<a href="tanjung_senang.html" target='blank'>SPBU Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame</a>					</div>			</div>                </div></div><script src="http://maps.googleapis.com/maps/api/js"></script><body>  
+    <div id="floating-panel">
+      <strong>Start:</strong>
+      <select id="start">
+        <option value="SPBU Pertamina Jalan Pramuka, Rajabasa,Kemiling Permai,Kemiling, Kota Bandar Lampung,Lampung 35152">SPBU Pramuka,Kemiling</option>
+        <option value="SPBU Pertamina Jl. Teuku Cik Ditiro, Beringin Raya, Kemiling, Kota Bandar Lampung,Lampung 35155">SPBU Beringin Raya,Kemiling</option>
+        <option value="SPBU Pertamina Jl. Sultan Hasanudin, Kangkung, Bumi Waras, Kota Bandar Lampung, Lampung 35221">SPBU Sultan Hasanudin,Bumi Waras</option>
+        <option value="SPBU Pertamina Jl. Yos Sudarso No.26, Sukaraja, Bumi Waras,Kota Bandar Lampung,Lampung 35226">SPBU Yos Sudarso,Bumi Waras</option>
+        <option value="SPBU Pertamina Jl. Jend. Sudirman No.142, Pahoman, Engal, Kota Bandar Lampung, Lampung 35213 ">SPBU Jendral Sudirman,Enggal</option>
+        <option value="SPBU Pertamina Jl. Gatot Subroto No.10, Pahoman, Engal, Kota Bandar Lampung, Lampung 35227">SPBU Gatot Subroto,Enggal</option>
+        <option value="SPBU Pertamina Jl. Soekarno - Hatta, Kalibalau Kencana,kedamaian, Kota Bandar Lampung 35245">SPBU Kalibalau,Kedamaian</option>
+        <option value="SPBU Pertamina Jl. Pangeran Antasari No.96, Kedamaian, Kota Bandar Lampung, Lampung 35122">SPBU Antasari No.96, Kedamaian</option>
+        <option value="SPBU Pertamina Jl. Pangeran Antasari No.89, Tj. Baru, Kedamaian, Kota Bandar Lampung,Lampung 35133">SPBU Antasari 89,Kedamaian</option>
+        <option value="SPBU Pertamina Jalan Teuku Umar, RT.01 / RW.01, Labuhan Ratu, Kedaton, Kota Bandar Lampung, Lampung 35132">SPBU Teuku Umar, Kedaton</option>
+        <option value="SPBU Pertamina Jl. Imam Bonjol, Langkapura, Kota Bandar Lampung,Lampung 35151">SPBU Imam Bonjol,Langkapura</option>
+        <option value="SPBU Pertamina Jl. Insinyur Sutami, Way Laga, Panjang, Kota Bandar Lampung,Lampung 35122">SPBU Way Laga,Panjang</option>
+        <option value="SPBU Pertamina Jl. Trans Sumatra No.32, Srengsem, Panjang, Kota Bandar Lampung,Lampung">SPBU Srengsem,Panjang</option>				<option value="SPBU Pertamina Jalan By Pass Soekarno Hatta,, Rajabasa Raya, Rajabasa, Kota Bandar Lampung, Lampung 35142">SPBU By Pass, Rajabasa raya</option>		        <option value="SPBU Pertamina Jalan ZA Pagar Alam No.72, Rajabasa, Kota Bandar Lampung, Lampung 35144">SPBU ZA Pagar Alam No.72, Rajabasa</option>        		<option value="SPBU Pertamina Jl. Zaenal Abidin Pagar Alam, Rajabasa, Kota Bandar Lampung, Lampung 35141">SPBU Zaenal Abidin Pagar Alam, Rajabasa</option>        		<option value="SPBU Pertamina Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame, Kota Bandar Lampung, Lampung 35131">SPBU Soekarno Hatta (by pass) No.256, Way Dadi, Sukarame</option>        		<option value="SPBU Pertamina Jl. RW. Monginsidi, Pengajaran, North Teluk Betung, Bandar Lampung City, Lampung 35212">SPBU RW. Monginsidi, Teluk Betung Utara</option>        		<option value="SPBU Pertamina Jl. Pattimura No.1, Kupang Kota, Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35211">SPBU Pattimura No.1, Tlk. Betung Utara</option>        		<option value="SPBU Pertamina Jl. Cut Nyak Dien, Kaliawi, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35119">SPBU Cut Nyak Dien, Kaliawi</option>        		<option value="SPBU Pertamina Jl. P. Emir Moh. Noer, Durian Payung, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35211">SPBU P. Emir Moh. Noer, Durian Payung</option>        		<option value="SPBU Pertamina Jl. Jenderal Ahmad Yani No.10, Palapa, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35213">SPBU Jenderal Ahmad Yani No.10, Palapa</option>        		<option value="SPBU Pertamina Jl. Ratu Dibalau, Way Kandis, Tj. Senang, Kota Bandar Lampung, Lampung 35141">SPBU Ratu Dibalau, Way Kandis, Tj. Senang</option>        		<option value="SPBU AKR Jl. Ratu Dibalau, Tj. Senang, Kota Bandar Lampung, Lampung 35135">SPBU Ratu Dibalau, Tj. Senang</option>        		<option value="SPBU AKR Jl. Ratu Dibalau No.35, Tj. Senang, Kota Bandar Lampung, Lampung 35136">SPBU Ratu Dibalau No.35, Tj. Senang</option>        				
+      </select>
+      <br>
+      <strong>End:</strong>
+      <select id="end">
+        <option value="SPBU Pertamina Jalan Pramuka, Rajabasa,Kemiling Permai,Kemiling, Kota Bandar Lampung,Lampung 35152">SPBU Pramuka,Kemiling</option>
+        <option value="SPBU Pertamina Jl. Teuku Cik Ditiro, Beringin Raya, Kemiling, Kota Bandar Lampung,Lampung 35155">SPBU Beringin Raya,Kemiling</option>
+        <option value="SPBU Pertamina Jl. Sultan Hasanudin, Kangkung, Bumi Waras, Kota Bandar Lampung, Lampung 35221">SPBU Sultan Hasanudin,Bumi Waras</option>
+        <option value="SPBU Pertamina Jl. Yos Sudarso No.26, Sukaraja, Bumi Waras,Kota Bandar Lampung,Lampung 35226">SPBU Yos Sudarso,Bumi Waras</option>
+        <option value="SPBU Pertamina Jl. Jend. Sudirman No.142, Pahoman, Engal, Kota Bandar Lampung, Lampung 35213 ">SPBU Jendral Sudirman,Enggal</option>
+        <option value="SPBU Pertamina Jl. Gatot Subroto No.10, Pahoman, Engal, Kota Bandar Lampung, Lampung 35227">SPBU Gatot Subroto,Enggal</option>
+        <option value="SPBU Pertamina Jl. Soekarno - Hatta, Kalibalau Kencana,kedamaian, Kota Bandar Lampung 35245">SPBU Kalibalau,Kedamaian</option>
+        <option value="SPBU Pertamina Jl. Pangeran Antasari No.96, Kedamaian, Kota Bandar Lampung, Lampung 35122">SPBU Antasari No.96, Kedamaian</option>
+        <option value="SPBU Pertamina Jl. Pangeran Antasari No.89, Tj. Baru, Kedamaian, Kota Bandar Lampung,Lampung 35133">SPBU Antasari 89,Kedamaian</option>
+        <option value="SPBU Pertamina Jalan Teuku Umar, RT.01 / RW.01, Labuhan Ratu, Kedaton, Kota Bandar Lampung, Lampung 35132">SPBU Teuku Umar, Kedaton</option>
+        <option value="SPBU Pertamina Jl. Imam Bonjol, Langkapura, Kota Bandar Lampung,Lampung 35151">SPBU Imam Bonjol,Langkapura</option>
+        <option value="SPBU Pertamina Jl. Insinyur Sutami, Way Laga, Panjang, Kota Bandar Lampung,Lampung 35122">SPBU Way Laga,Panjang</option>
+        <option value="SPBU Pertamina Jl. Trans Sumatra No.32, Srengsem, Panjang, Kota Bandar Lampung,Lampung">SPBU Srengsem,Panjang</option>				<option value="SPBU Pertamina Jalan By Pass Soekarno Hatta,, Rajabasa Raya, Rajabasa, Kota Bandar Lampung, Lampung 35142">SPBU By Pass, Rajabasa raya</option>		        <option value="SPBU Pertamina Jalan ZA Pagar Alam No.72, Rajabasa, Kota Bandar Lampung, Lampung 35144">SPBU ZA Pagar Alam No.72, Rajabasa</option>        		<option value="SPBU Pertamina Jl. Zaenal Abidin Pagar Alam, Rajabasa, Kota Bandar Lampung, Lampung 35141">SPBU Zaenal Abidin Pagar Alam, Rajabasa</option>        		<option value="SPBU Pertamina Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame, Kota Bandar Lampung, Lampung 35131">SPBU Soekarno Hatta (by pass) No.256, Way Dadi, Sukarame</option>        		<option value="SPBU Pertamina Jl. RW. Monginsidi, Pengajaran, North Teluk Betung, Bandar Lampung City, Lampung 35212">SPBU RW. Monginsidi, Teluk Betung Utara</option>        		<option value="SPBU Pertamina Jl. Pattimura No.1, Kupang Kota, Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35211">SPBU Pattimura No.1, Tlk. Betung Utara</option>        		<option value="SPBU Pertamina Jl. Cut Nyak Dien, Kaliawi, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35119">SPBU Cut Nyak Dien, Kaliawi</option>        		<option value="SPBU Pertamina Jl. P. Emir Moh. Noer, Durian Payung, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35211">SPBU P. Emir Moh. Noer, Durian Payung</option>        		<option value="SPBU Pertamina Jl. Jenderal Ahmad Yani No.10, Palapa, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35213">SPBU Jenderal Ahmad Yani No.10, Palapa</option>        		<option value="SPBU Pertamina Jl. Ratu Dibalau, Way Kandis, Tj. Senang, Kota Bandar Lampung, Lampung 35141">SPBU Ratu Dibalau, Way Kandis, Tj. Senang</option>        		<option value="SPBU AKR Jl. Ratu Dibalau, Tj. Senang, Kota Bandar Lampung, Lampung 35135">SPBU Ratu Dibalau, Tj. Senang</option>        		<option value="SPBU AKR Jl. Ratu Dibalau No.35, Tj. Senang, Kota Bandar Lampung, Lampung 35136">SPBU Ratu Dibalau No.35, Tj. Senang</option>        
+      </select>
+    </div>
+    <div id="right-panel"></div>
+    <div id="map"></div>	
+    <script>
+      function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: new google.maps.LatLng(-5.4284046, 105.2006967),
+        });
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
+
+        var control = document.getElementById('floating-panel');
+        control.style.display = 'block';
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        directionsService.route({
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+    </script>
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZB9ZJU2sial0Lcy25X2Rv0bti9HlFd1o&callback=initMap">
+    </script>
+  </body>
+</html>
