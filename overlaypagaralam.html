@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+  <meta charset="utf-8"> 
+
+  <meta name="viewport" content="width=device-width"> 
+
+  <title>Tugas Sistem Informasi Geografis</title> 
+
+  <link rel="stylesheet" type="text/css" href="markercontoh2.css">
+
+</head>
+
+
+
+<body>
+
+  <h1><center>Sistem Informasi Geografis SPBU Kota Bandar Lampung</center></h1>
+
+	<div class="header">
+    <div class= "sidebar">
+        <a class="active" href="SPBU.html">HOME</a>
+             <div class="s1">
+                <button class="btn1">DAFTAR SPBU</button>
+					<div class="sidebar3">
+						<a href="rajabasa.html" target='blank'>KECAMATAN RAJABASA</a>
+						<a href="kedaton.html" target='blank'>KECAMATAN KEDATON</a>
+						<a href="kemiling.html" target='blank'>KECAMATAN KEMILING</a>
+						<a href="sukabumi.html" target='blank'>KECAMATAN SUKABUMI</a>
+						<a href="sukarame.html" target='blank'>KECAMATAN SUKARAME</a>
+						<a href="tanjung_senang.html" target='blank'>KECAMATAN TANJUNG SENANG</a>
+						<a href="tb_utara.html" target='blank'>KECAMATAN TELUK BETUNG UTARA</a>
+						<a href="tb_selatan.html" target='blank'>KECAMATAN TELUK BETUNG SELATAN</a>
+						<a href="tkp.html" target='blank'>KECAMATAN TANJUNG KARANG PUSAT</a>
+						<a href="tk_timur.html" target='blank'>KECAMATAN TANJUNG KARANG TIMUR</a>
+
+					</div>
+			</div>
+		<a class="active" href="contactus.html">CONTACT US</a>
+		<a class="active" href="directionspbu.html">DIRECTION</a>
+		<div class="s1">
+                <button class="btn1">OVERLAY</button>
+					<div class="sidebar3">
+						<a href="overlayrajabasa.html" target='blank'>SPBU jalan Pramuka, rajabasa</a>
+						<a href="overlayrajabasaraya.html" target='blank'>SPBU Jalan By Pass Soekarno Hatta, Rajabasa raya</a>
+						<a href="kemiling.html" target='blank'>SPBU Jl. ZA Pagar Alam No.72, Rajabasa</a>
+						<a href="sukabumi.html" target='blank'>SPBU Jl. Zaenal Abidin Pagar Alam, Rajabasa</a>
+						<a href="sukarame.html" target='blank'>SPBU Jl. Soekarno - Hatta, Labuhan Ratu, Kedaton</a>
+						<a href="tanjung_senang.html" target='blank'>SPBU Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame</a>
+
+					</div>
+			</div>
+            
+    </div>
+</div>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+<body> 
+	<div id="kotak">
+		<div id="map" style="width:100%;height:450px;"></div>
+		<div class="footer"> <center> Designed by Elmira Ramadhanti, Erizki wala, Jihan Farahdhilah</center></div>
+		</form>
+	</div>   
+</body>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs7q7TznMg3Ai1LjVMjIpmsoJRwU_zSIY"></script>
+          <script>
+      
+            var overlay;
+            USGSOverlay.prototype = new google.maps.OverlayView();
+      
+            // Initialize the map and the custom overlay.
+      
+            function initMap() {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,  
+                center: {lat: -5.3674773, lng: 105.2338153},
+                mapTypeId: 'roadmap'
+              });
+      
+              var bounds = new google.maps.LatLngBounds(
+                new google.maps.LatLng(-5.366983, 105.232179),
+                  new google.maps.LatLng(-5.367581, 105.236544));
+      
+              var srcImage = 'pagaralam.jpg';
+              overlay = new USGSOverlay(bounds, srcImage, map);
+            }
+      
+            function USGSOverlay(bounds, image, map) {
+      
+              this.bounds_ = bounds;
+              this.image_ = image;
+              this.map_ = map;
+              this.div_ = null;
+              this.setMap(map);
+            }
+            USGSOverlay.prototype.onAdd = function() {
+      
+              var div = document.createElement('div');
+              div.style.borderStyle = 'none';
+              div.style.borderWidth = '0px';
+              div.style.position = 'absolute';
+      
+              var img = document.createElement('img');
+              img.src = this.image_;
+              img.style.width = '80%';
+              img.style.height = '1300%';
+              img.style.position = 'absolute';
+              div.appendChild(img);
+      
+              this.div_ = div;
+      
+              // Add the element to the "overlayLayer" pane.
+              var panes = this.getPanes();
+              panes.overlayLayer.appendChild(div);
+            };
+      
+            USGSOverlay.prototype.draw = function() {
+              var overlayProjection = this.getProjection();
+              var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+              var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+      
+              var div = this.div_;
+              div.style.left = sw.x + 'px';
+              div.style.top = ne.y + 'px';
+              div.style.width = (ne.x - sw.x) + 'px';
+              div.style.height = (sw.y - ne.y) + 'px';
+            };
+      
+            USGSOverlay.prototype.onRemove = function() {
+              this.div_.parentNode.removeChild(this.div_);
+              this.div_ = null;
+            };
+      
+            google.maps.event.addDomListener(window, 'load', initMap);
+          </script>
+      <div id="map"></div>
+
+    <div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="000webhost logo" rel="nofollow" target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_campaign=ss-footer_logo&amp;utm_medium=000_logo&amp;utm_content=website"><img src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png" alt="000webhost logo"></a></div>
+    </body>
+</html>
