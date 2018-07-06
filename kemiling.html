@@ -1,0 +1,173 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width"> 
+  <title>Tugas Sistem Informasi Geografis</title> 
+  <link rel="stylesheet" type="text/css" href="markercontoh2.css">
+</head>
+
+<body>
+  <h1><center>SIG SPBU Kota Bandar Lampung</center></h1>
+            
+<div class="header">
+    <div class= "sidebar">
+        <a class="active" href="SPBU.html">HOME</a>
+             <div class="s1">
+                <button class="btn1">DAFTAR SPBU</button>
+					<div class="sidebar3">
+						<a href="rajabasa.html" target='blank'>KECAMATAN RAJABASA</a>
+						<a href="kedaton.html" target='blank'>KECAMATAN KEDATON</a>
+						<a href="kemiling.html" target='blank'>KECAMATAN KEMILING</a>
+						<a href="sukabumi.html" target='blank'>KECAMATAN SUKABUMI</a>
+						<a href="sukarame.html" target='blank'>KECAMATAN SUKARAME</a>
+						<a href="tanjung_senang.html" target='blank'>KECAMATAN TANJUNG SENANG</a>
+						<a href="tb_utara.html" target='blank'>KECAMATAN TELUK BETUNG UTARA</a>
+						<a href="tb_selatan.html" target='blank'>KECAMATAN TELUK BETUNG SELATAN</a>
+						<a href="tkp.html" target='blank'>KECAMATAN TANJUNG KARANG PUSAT</a>
+						<a href="tk_timur.html" target='blank'>KECAMATAN TANJUNG KARANG TIMUR</a>
+
+					</div>
+			</div>
+		<a class="active" href="contactus.html">CONTACT US</a>
+		<a class="active" href="directionspbu.html">DIRECTION</a>
+		<div class="s1">
+                <button class="btn1">OVERLAY</button>
+					<div class="sidebar3">
+						<a href="overlayrajabasa.html" target='blank'>SPBU jalan Pramuka, rajabasa</a>
+						<a href="overlayrajabasaraya.html" target='blank'>SPBU Jalan By Pass Soekarno Hatta, Rajabasa raya</a>
+						<a href="#" target='blank'>SPBU Jl. ZA Pagar Alam No.72, Rajabasa</a>
+						<a href="#" target='blank'>SPBU Jl. Zaenal Abidin Pagar Alam, Rajabasa</a>
+						<a href="#" target='blank'>SPBU Jl. Soekarno - Hatta, Labuhan Ratu, Kedaton</a>
+						<a href="#" target='blank'>SPBU Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame</a>
+
+					</div>
+			</div>
+            
+    </div>
+</div>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+<body> 
+	<div id="kotak">
+		<div id="map" style="width:100%;height:450px;"></div>
+		<div class="footer"> <center> Designed by Elmira Ramadhanti, Erizki wala, Jihan Farahdhilah</center></div>
+		</form>
+	</div>   
+</body> 
+
+<script>
+
+function initialize(){
+	var mapOptions = {
+		zoom:12,
+		center: new google.maps.LatLng(-5.3940049, 105.2322435),
+	};
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	
+	infoWindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow();
+	
+	var contentString;
+	infowindow.setContent(contentString);
+  
+	var marker = new google.maps.Marker();
+	marker.addListener('click',function(){
+		infowindow.open(map,marker);
+  ``});
+	marker.setMap(map);
+	
+	var infoWin = new google.maps.InfoWindow();
+    var labels = 'Bandar Lampung';
+        
+    var markers = locations.map(function(location, i) {
+        var marker = new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+        });
+		google.maps.event.addListener(marker, 'click', function(evt) {
+			infoWin.setContent(location.info);
+			infoWin.open(map, marker);
+		})
+		return marker;
+    }); 
+    
+	console.log(locations);
+    console.log(markers);
+
+    var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'images/m'});
+        
+    var d = markerCluster.distanceBetweenPoints_(markers[2].getPosition(),markers[4].getPosition());
+    console.log(markerCluster.getCalculator());
+
+
+    }
+	
+	function showArrays(event) {
+		var vertices = this.getPath();
+		var contentString = '<b>' + this.name + '</b>';
+		infoWindow.setPosition(event.latLng);
+		infoWindow.setContent(contentString);
+		infoWindow.open(map);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+    var locations = [
+		{lat: -5.3940049, lng: 105.2322435, info: "<p>SPBU Jl. Imam Bonjol, Langkapura</p>"},
+		{lat: -5.381262, lng: 105.2210641, info: "<p>SPBU jalan Pramuka, kemiling"}
+        ]
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZB9ZJU2sial0Lcy25X2Rv0bti9HlFd1o&callback= ap"> </script> 
+<script>
+        var map = null;
+        var center = { lat: -5.375130, lng: 105.253640};
+        var infowindow;
+
+        var config = {
+    apiKey: "AIzaSyCO04cRNEmGZCh6NhNvlXcUxNZS8NWE1dE",
+    authDomain: "kemiling-cee4d.firebaseapp.com",
+    databaseURL: "https://kemiling-cee4d.firebaseio.com",
+    projectId: "kemiling-cee4d",
+    storageBucket: "",
+    messagingSenderId: "116329300550"
+  };
+  firebase.initializeApp(config);
+
+
+        var db = firebase.database();
+        var dataRef = db.ref('kemiling')
+
+        dataRef.on('value', showData, showError);
+        function showData(data){
+            //console.log(data.val());
+            map.data.addGeoJson(data.val()); 
+            map.data.setStyle({
+                fillColor :'#ff1e1e',
+                strokeWeight: 0.2
+            });
+            map.data.addListener('click', function(event){
+                infoWindowContent = event.feature.getProperty('DESA')+"<br>"+event.feature.getProperty('KECAMATAN');
+                infowindow.setContent(infoWindowContent);
+                infowindow.setPosition(event.latLng);
+                infowindow.open(map);
+        
+            });
+        }
+        function showError(err){
+            console.log(err);
+        }
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 13,
+                center: center
+            });
+            infowindow = new google.maps.InfoWindow();
+        }
+    </script>
+<script src="src/markerclusterer.js"></script>
+</html>
