@@ -1,0 +1,260 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width"> 
+  <title>Tugas Sistem Informasi Geografis</title> 
+  <link rel="stylesheet" type="text/css" href="markercontoh2.css">
+</head>
+
+<body>
+  <h1><center>SIG SPBU Kota Bandar Lampung</center></h1>
+            
+<div class="header">
+    <div class= "sidebar">
+        <a class="active" href="new1.html">HOME</a>
+             <div class="s1">
+                <button class="btn1">DAFTAR SPBU</button>
+					<div class="sidebar3">
+						<a href="rajabasa.html" target='blank'>KECAMATAN RAJABASA</a>
+						<a href="kedaton.html" target='blank'>KECAMATAN KEDATON</a>
+						<a href="kemiling.html" target='blank'>KECAMATAN KEMILING</a>
+						<a href="sukabumi.html" target='blank'>KECAMATAN SUKABUMI</a>
+						<a href="sukarame.html" target='blank'>KECAMATAN SUKARAME</a>
+						<a href="tanjung_senang.html" target='blank'>KECAMATAN TANJUNG SENANG</a>
+						<a href="tb_utara.html" target='blank'>KECAMATAN TELUK BETUNG UTARA</a>
+						<a href="tb_selatan.html" target='blank'>KECAMATAN TELUK BETUNG SELATAN</a>
+						<a href="tkp.html" target='blank'>KECAMATAN TANJUNG KARANG PUSAT</a>
+						<a href="tk_timur.html" target='blank'>KECAMATAN TANJUNG KARANG TIMUR</a>
+
+					</div>
+			</div>
+		<a class="active" href="contactus.html">CONTACT US</a>
+		<a class="active" href="directionspbu.html">DIRECTION</a>
+		<div class="s1">
+                <button class="btn1">OVERLAY</button>
+					<div class="sidebar3">
+						<a href="overlayrajabasa.html" target='blank'>SPBU jalan Pramuka, rajabasa</a>
+						<a href="overlayrajabasaraya.html" target='blank'>SPBU Jalan By Pass Soekarno Hatta, Rajabasa raya</a>
+						<a href="kemiling.html" target='blank'>SPBU Jl. ZA Pagar Alam No.72, Rajabasa</a>
+						<a href="sukabumi.html" target='blank'>SPBU Jl. Zaenal Abidin Pagar Alam, Rajabasa</a>
+						<a href="sukarame.html" target='blank'>SPBU Jl. Soekarno - Hatta, Labuhan Ratu, Kedaton</a>
+						<a href="tanjung_senang.html" target='blank'>SPBU Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame</a>
+
+					</div>
+			</div>
+            
+    </div>
+</div>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+<body> 
+	<div id="kotak">
+		<div id="map" style="width:100%;height:450px;"></div>
+		<div class="footer"> <center> Designed by Elmira Ramadhanti, Erizki wala, Jihan Farahdhilah</center></div>
+		</form>
+	</div>   
+</body> 
+
+<script>
+
+function initialize(){
+	var mapOptions = {
+		zoom:9,
+		center: new google.maps.LatLng(-5.375130, 105.253640),
+	};
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	
+	infoWindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow();
+	
+	var contentString;
+	infowindow.setContent(contentString);
+  
+	var marker = new google.maps.Marker();
+	marker.addListener('click',function(){
+		infowindow.open(map,marker);
+  ``});
+	marker.setMap(map);
+	
+	var infoWin = new google.maps.InfoWindow();
+    var labels = 'Bandar Lampung';
+        
+    var markers = locations.map(function(location, i) {
+        var marker = new google.maps.Marker({
+            position: location
+        });
+		google.maps.event.addListener(marker, 'click', function(evt) {
+			infoWin.setContent(location.info);
+			infoWin.open(map, marker);
+		})
+		return marker;
+    }); 
+    
+	console.log(locations);
+    console.log(markers);
+
+    var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'images/m'});
+        
+    var d = markerCluster.distanceBetweenPoints_(markers[2].getPosition(),markers[4].getPosition());
+    console.log(markerCluster.getCalculator());
+
+
+    }
+	
+	function showArrays(event) {
+		var vertices = this.getPath();
+		var contentString = '<b>' + this.name + '</b>';
+		infoWindow.setPosition(event.latLng);
+		infoWindow.setContent(contentString);
+		infoWindow.open(map);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+    var locations = [
+        {lat: -5.381262, lng: 105.2210641, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jalan Pramuka, Rajabasa, Kemiling Permai, Kemiling, Kota Bandar Lampung, Lampung 35152</p><p><img src="images/dunia.png" style="width:30px;height:30px;">Pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(021) 1500000</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.3590439, lng: 105.2341747, info: '<div style="width:350px;height:230px;"><h1><center>SPBU Pertamina</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jalan By Pass Soekarno Hatta, Rajabasa Raya, Rajabasa, Kota Bandar Lampung, Lampung 35142</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.3674773, lng: 105.2338153, info: '<div style="width:350px;height:230px;"><h1><center>SPBU Pertamina 24.351.93</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jalan ZA Pagar Alam No.72, Rajabasa, Kota Bandar Lampung, Lampung 35144</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">0857-6681-2393</p></div>'},
+        {lat: -5.3680861, lng: 105.2332413, info: '<div style="width:350px;height:230px;"><h1><center>SPBU Pertamina 24.35174</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Zaenal Abidin Pagar Alam, Rajabasa, Kota Bandar Lampung, Lampung 35141</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">0815-4000-7574</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div></div>'},
+        {lat: -5.366831, lng: 105.2657282, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.351-30</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Soekarno - Hatta, Labuhan Ratu, Kedaton, Kota Bandar Lampung, Lampung 35141</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 704248</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.3884293, lng: 105.2883554, info: '<div style="width:350px;height:270px;"><h1><center>Pertamina</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame, Kota Bandar Lampung, Lampung 35131</p><p><img src="images/dunia.png" style="width:30px;height:30px;">Pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 701746</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.3964616, lng: 105.2891493, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.351.33</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Soekarno - Hatta, Kalibalau Kencana, Kedamaian, Kota Bandar Lampung, Lampung 35245</p><p><img src="images/dunia.png" style="width:30px;height:30px;">Pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 705182</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.3940049, lng: 105.2322435, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24-35131</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Imam Bonjol, Langkapura, Kota Bandar Lampung, Lampung 35151</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(021) 1500000</p><p><img src="images/jam.png" style="width:30px;height:30px;">08.00 - 20.00</p></div>'},
+        {lat: -5.4141709, lng: 105.2468991, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.351-102</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Cut Nyak Dien, Kaliawi, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35119</p><p><img src="images/dunia.png" style="width:30px;height:30px;">pertamina.com</p></div>'},
+        {lat: -5.4216689, lng: 105.246942, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.351.37</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. P. Emir Moh. Noer, Durian Payung, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35211</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p></div>'},
+        {lat: -5.4320933, lng: 105.2535081, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.352-127</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. RW. Monginsidi, Pengajaran, North Teluk Betung, Bandar Lampung City, Lampung 35212</p><p><img src="images/dunia.png" style="width:30px;height:30px;">pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 488123</p><p><img src="images/jam.png" style="width:30px;height:30px;">06.00–22.00</p></div>'}, 
+        {lat: -5.444376, lng: 105.2662325, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Pattimura No.1, Kupang Kota, Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35211</p><p><img src="images/dunia.png" style="width:30px;height:30px;">pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 487485</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'}, 
+        {lat: -5.4444401, lng: 105.2696872, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 21.351-05</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Sultan Hasanudin, Kangkung, Bumi Waras, Kota Bandar Lampung, Lampung 35221</p><p><img src="images/dunia.png" style="width:30px;height:30px;">pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 471731</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.4231002, lng: 105.2712107, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.352-38</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Jend. Sudirman No.142, Pahoman, Engal, Kota Bandar Lampung, Lampung 35213</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 253662</p><p><img src="images/jam.png" style="width:30px;height:30px;">07.00–21.30</p></div>'},
+        {lat: -5.3863571, lng: 105.2697301, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.351-111</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Ki Maja, Kedaton, Kota Bandar Lampung, Lampung 35135</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 787111</p><p><img src="images/jam.png" style="width:30px;height:30px;">07.00–21.30</p></div>'},
+        {lat: -5.3827681, lng: 105.2587867, info: '<div style="width:350px;height:150px;"><h1><center>Spbu 2435177</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Zainal Abidin Pagar Alam, Labuhan Ratu, Kedaton, Kota Bandar Lampung, Lampung 35132</p></div>'},
+        {lat: -5.4493317, lng: 105.3040838, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24-352.39</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Yos Sudarso No.26, Sukaraja, Bumi Waras, Kota Bandar Lampung, Lampung 35226</p><p><img src="images/dunia.png" style="width:30px;height:30px;">pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 481728</p><p><img src="images/jam.png" style="width:30px;height:30px;">06.00–21.00</p></div>'},
+        {lat: -5.4032389, lng: 105.2818751, info: '<div style="width:350px;height:270px;"><h1><center>SPBU Pertamina 24.351-126</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Pangeran Antasari No.96, Kedamaian, Kota Bandar Lampung, Lampung 35122</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 7622974</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'}, 
+        {lat: -5.420996, lng: 105.2524567, info: '<div style="width:350px;height:230px;"><h1><center>SPBU Pertamina</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Jenderal Ahmad Yani No.10, Palapa, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35213</p><p><img src="images/dunia.png" style="width:30px;height:30px;">spbu.pertamina.com</p><p><img src="images/jam.png" style="width:30px;height:30px;">06.00–22.00</p></div>'},
+        {lat: -5.364005, lng: 105.2757858, info: '<div style="width:350px;height:270px;"><h1><center>AKR SPBKB 20.1.2.017</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Ratu Dibalau, Way Kandis, Tj. Senang, Kota Bandar Lampung, Lampung 35141</p><p><img src="images/dunia.png" style="width:30px;height:30px;">pertamina.co.id</p><p><img src="images/telepon1.png" style="width:30px;height:30px;">(0721) 7625204</p><p><img src="images/jam.png" style="width:30px;height:30px;">Buka 24 Jam</p></div>'},
+        {lat: -5.3639202, lng: 105.2759112, info: '<div style="width:350px;height:270px;"><h1><center>Pom BBM AKR Way Kandis 23-351.24</center></h1><hr><p><img src="images/markerbiru.png" style="width:30px;height:30px;">Jl. Ratu Dibalau No.194, Tj. Senang, Kota Bandar Lampung, Lampung 35135</p><p><img src="images/jam.png" style="width:30px;height:30px;">06.00–22.00</p></div>'}
+        ]
+</script>
+ 
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZB9ZJU2sial0Lcy25X2Rv0bti9HlFd1o&libraries=places&callback=initMap"> </script> 
+<script>
+        var map = null;
+        var center = { lat: -5.375130, lng: 105.253640};
+        var infowindow;
+
+        var config = {
+            apiKey: "AIzaSyCU5XWOsQbzpNFzRyRTjK3Wt2O-zF5yZ44",
+            authDomain: "geojson-e5b16.firebaseapp.com",
+            databaseURL: "https://geojson-e5b16.firebaseio.com",
+            projectId: "geojson-e5b16",
+            storageBucket: "geojson-e5b16.appspot.com",
+            messagingSenderId: "97398792162"
+        };
+        firebase.initializeApp(config);
+
+        var db = firebase.database();
+        var dataRef = db.ref('bandar_lampung')
+
+        dataRef.on('value', showData, showError);
+        function showData(data){
+            //console.log(data.val());
+            map.data.addGeoJson(data.val()); 
+            map.data.setStyle({
+                fillColor :'#ff1e1e',
+                strokeWeight: 0.2
+            });
+            map.data.addListener('click', function(event){
+                infoWindowContent = event.feature.getProperty('DESA')+"<br>"+event.feature.getProperty('KECAMATAN');
+                infowindow.setContent(infoWindowContent);
+                infowindow.setPosition(event.latLng);
+                infowindow.open(map);
+        
+            });
+        }
+        function showError(err){
+            console.log(err);
+        }
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 11,
+                center: center
+            });
+            infowindow = new google.maps.InfoWindow();
+            var input = document.getElementById('searchInput');
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', map);
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29)
+    });
+
+    autocomplete.addListener('place_changed', function() {
+        infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            window.alert("Autocomplete's returned place contains no geometry");
+            return;
+        }
+  
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+        }
+        marker.setIcon(({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+        }));
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+    
+        var address = '';
+        if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+        }
+    
+        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+        infowindow.open(map, marker);
+      
+        //Location details
+        for (var i = 0; i < place.address_components.length; i++) {
+            if(place.address_components[i].types[0] == 'postal_code'){
+                document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
+            }
+            if(place.address_components[i].types[0] == 'country'){
+                document.getElementById('country').innerHTML = place.address_components[i].long_name;
+            }
+        }
+        document.getElementById('location').innerHTML = place.formatted_address;
+        document.getElementById('lat').innerHTML = place.geometry.location.lat();
+        document.getElementById('lon').innerHTML = place.geometry.location.lng();
+    });
+
+            markerlokasi.addListener('click',function(){
+                    infowindowlokasi.open(map,markerlokasi);
+                    });
+                    markerlokasi.setMap(map);
+            
+        }
+
+    </script>
+<script src="src/markerclusterer.js"></script>
+</html>
