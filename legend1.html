@@ -1,0 +1,267 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width"> 
+  <title>Tugas Sistem Informasi Geografis</title> 
+  <link rel="stylesheet" type="text/css" href="markercontoh2.css">
+</head>
+
+<body>
+  <h1><center>SIG SPBU Kota Bandar Lampung</center></h1>
+            
+<div class="header">
+    <div class= "sidebar">
+        <a class="active" href="SPBU.html">HOME</a>
+             <div class="s1">
+                <button class="btn1">DAFTAR SPBU</button>
+					<div class="sidebar3">
+						<a href="rajabasa.html" target='blank'>KECAMATAN RAJABASA</a>
+						<a href="kedaton.html" target='blank'>KECAMATAN KEDATON</a>
+						<a href="kemiling.html" target='blank'>KECAMATAN KEMILING</a>
+						<a href="sukabumi.html" target='blank'>KECAMATAN SUKABUMI</a>
+						<a href="sukarame.html" target='blank'>KECAMATAN SUKARAME</a>
+						<a href="tanjung_senang.html" target='blank'>KECAMATAN TANJUNG SENANG</a>
+						<a href="tb_utara.html" target='blank'>KECAMATAN TELUK BETUNG UTARA</a>
+						<a href="tb_selatan.html" target='blank'>KECAMATAN TELUK BETUNG SELATAN</a>
+						<a href="tkp.html" target='blank'>KECAMATAN TANJUNG KARANG PUSAT</a>
+						<a href="tk_timur.html" target='blank'>KECAMATAN TANJUNG KARANG TIMUR</a>
+
+					</div>
+			</div>
+		<a class="active" href="contactus.html">CONTACT US</a>
+		<a class="active" href="directionspbu.html">DIRECTION</a>
+		<div class="s1">
+                <button class="btn1">OVERLAY</button>
+					<div class="sidebar3">
+						<a href="overlayrajabasa.html" target='blank'>SPBU jalan Pramuka, rajabasa</a>
+						<a href="overlayrajabasaraya.html" target='blank'>SPBU Jalan By Pass Soekarno Hatta, Rajabasa raya</a>
+						<a href="kemiling.html" target='blank'>SPBU Jl. ZA Pagar Alam No.72, Rajabasa</a>
+						<a href="sukabumi.html" target='blank'>SPBU Jl. Zaenal Abidin Pagar Alam, Rajabasa</a>
+						<a href="sukarame.html" target='blank'>SPBU Jl. Soekarno - Hatta, Labuhan Ratu, Kedaton</a>
+						<a href="tanjung_senang.html" target='blank'>SPBU Jl. Soekarno Hatta (bypass) No.256, Way Dadi, Sukarame</a>
+
+					</div>
+			</div>
+            
+    </div>
+</div>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+<body> 
+	<div id="kotak">
+		<div id="map" style="width:100%;height:450px;"></div>
+		<div class="footer"> <center> Designed by Elmira Ramadhanti, Erizki wala, Jihan Farahdhilah</center></div>
+		</form>
+	</div>   
+</body> 
+
+<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: new google.maps.LatLng(-5.4284046, 105.2006967),
+          mapTypeId: 'roadmap'
+        });
+        var icons = {
+                alam: {
+                    name: 'Wisata Alam',
+                    icon: 'https://png.icons8.com/color/50/000000/deciduous-tree.png'
+                },
+                bahari: {
+                    name: 'Wisata Bahari',
+                    icon: 'https://png.icons8.com/color/40/000000/beach.png'
+                },
+                sejarah: {
+                    name: 'Wisata Sejarah',
+                    icon: 'https://png.icons8.com/color/40/000000/monument.png'
+                },
+        };
+
+            var features = [
+            {
+    position: new google.maps.LatLng(-5.415716,105.230931),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.420597,105.227315),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.488238,105.243901),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.485855,105.249829),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.422369,105.233951),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.420963,105.188647),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.436819,105.222879),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.435646,105.229588),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.467633,104.353596),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.782575,105.626257),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-4.917118,105.654143),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.125460,105.287299),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.387368,104.986844),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-4.618378,104.582374),
+    type: 'alam'
+},{
+    position: new google.maps.LatLng(-5.484210,105.252753),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.476866,105.252560),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.192104,103.930569),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.215817,103.902611),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-4.913854,103.905034),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.822608,105.276203),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.808433,105.326156),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.559381,105.251807),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.674031,105.533562),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.092269,104.724823),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.096705,105.137591),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-4.869311,105.487018),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-4.913926,104.979775),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-4.931929,104.789818),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-3.951813,105.325522),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-3.990817,105.337660),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.587327,105.024799),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.580092,105.212739),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.630553,105.214340),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.640909,105.233991),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.594522,105.246086),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.571501,105.245292),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.563792,105.275936),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.510729,105.269102),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.514424,105.263308),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.104246,103.864045),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.307731,103.995633),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.193239,103.928879),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.118680,103.847712),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.336973,105.060871),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.354054,104.945531),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.485171,104.689206),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.302749,104.565527),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-4.859712,104.386280),
+    type: 'bahari'
+},{
+    position: new google.maps.LatLng(-5.865558,105.749820),
+    type: 'sejarah'
+},{
+    position: new google.maps.LatLng(-4.834498,104.896880),
+    type: 'sejarah'
+},{
+    position: new google.maps.LatLng(-4.018502,105.247482),
+    type: 'sejarah'
+},{
+    position: new google.maps.LatLng(-4.009674,105.248695),
+    type: 'sejarah'
+},
+];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+
+        var legend = document.getElementById('legend');
+        for (var key in icons) {
+          var type = icons[key];
+          var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '"> ' + name;
+          legend.appendChild(div);
+        }
+
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+      }
+    </script>
+<script src="src/markerclusterer.js"></script>
+</html>
